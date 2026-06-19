@@ -22,7 +22,9 @@ public class Matriz {
         matrizi.add(line3);
 
         ArrayList<ArrayList<Integer>> matrizf = new ArrayList<>();
+        
         ArrayList<Integer> nums = new ArrayList<>();
+        
         int rolets = 0;
         for (int i = 1; i < matrizi.size(); i++) {
             for (int j = 0; j < matrizi.size(); j++) {
@@ -31,6 +33,7 @@ public class Matriz {
                     rolets += 1;
                 }
             }
+            
             matrizf.add(new ArrayList<>(nums));
             if (i == 1) {
                 nums.clear();
