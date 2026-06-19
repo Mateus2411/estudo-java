@@ -1,0 +1,8 @@
+{
+    "java.completion.enabled": true,
+    "java.autobuild.enabled": true,
+    "editor.smartSemicolon": "on",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    }
+}
