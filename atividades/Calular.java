@@ -2,7 +2,7 @@ package atividades;
 
 import java.util.Scanner;
 
-public class Cal {
+public class Calular {
 
     static int calc(int op, int num1, int num2) {
         int result = 0;
