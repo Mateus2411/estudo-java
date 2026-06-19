@@ -3,7 +3,6 @@ package atividades;
 import java.util.ArrayList;
 
 public class Matriz {
-
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> matrizi = new ArrayList<>();
 
@@ -22,7 +21,7 @@ public class Matriz {
         matrizi.add(line3);
 
         ArrayList<ArrayList<Integer>> matrizf = new ArrayList<>();
-        
+
         ArrayList<Integer> nums = new ArrayList<>();
         
         int rolets = 0;
