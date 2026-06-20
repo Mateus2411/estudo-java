@@ -1,9 +1,123 @@
 package atividades;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Matriz {
+
+    static void Transposta() {
+
+    }
+
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        //tamanho da matriz
+        System.out.println("Diga o numero da matriz sendo\nprimeiro linha e depois coluna, utilize ',' para separar");
+        String tamanho;
+
+        int erros = 0;
+        do {
+            if (erros > 0) {
+                System.out.println("Digite o numero novamente seguindo as instruções dadas");
+            }
+            tamanho = sc.nextLine();
+            erros++;
+        } while (!tamanho.trim().matches("-?\\d+,-?\\d+"));
+
+        //Linhas e colunas que serão armazenadas
+        ArrayList<Integer> linhasEcolunas = new ArrayList<>();
+
+        //Estraindo elas
+        String[] extractedNums = tamanho.split(",");
+
+        for (int i = 0; i < extractedNums.length; i++) {
+            linhasEcolunas.add(Integer.parseInt(extractedNums[i]));
+        };
+
+        ArrayList<ArrayList<Integer>> matriz = new ArrayList<>();
+
+        TolsMatriz tolsMatriz = new TolsMatriz();
+
+        for (int i = 0; i < linhasEcolunas.get(0); i++) {
+            System.out.printf("Digite os numeros da %dª linha da matriz separados por espaço\n", i + 1);
+            String nuns;
+
+            //Limpa o Buffer
+            int loads = 0;
+            do {
+                if (loads != 0) {
+                    System.out.printf("Digite novamente os numeros");
+                }
+                nuns = sc.nextLine();
+            } while (nuns.trim().split("\\s+").length != linhasEcolunas.get(1));
+            ArrayList<Integer> line = tolsMatriz.montarMatriz(nuns);
+            matriz.add(line);
+        };
+        tolsMatriz.imprimirMatrizComBorda(matriz);
+    }
+}
+
+class TolsMatriz {
+
+    public ArrayList<Integer> montarMatriz(String line) {
+        ArrayList<Integer> nuns = new ArrayList<>();
+
+        int[] nums = Arrays.stream(line.trim().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        for (int elem : nums) {
+            nuns.add(elem);
+        }
+        return nuns;
+    };
+    //Chatzão kkkkkkkkkkkk
+    public void imprimirMatrizComBorda(ArrayList<ArrayList<Integer>> matriz) {
+
+        int colunas = matriz.get(0).size();
+
+        // encontra maior número pra ajustar largura automaticamente
+        int max = Integer.MIN_VALUE;
+
+        for (ArrayList<Integer> linha : matriz) {
+            for (int v : linha) {
+                max = Math.max(max, v);
+            }
+        }
+
+        int largura = String.valueOf(max).length() + 2;
+
+        // topo
+        printLinha(colunas, largura);
+
+        for (ArrayList<Integer> linha : matriz) {
+
+            System.out.print("|");
+
+            for (int v : linha) {
+                System.out.printf("%" + largura + "d|", v);
+            }
+
+            System.out.println();
+
+            printLinha(colunas, largura);
+        }
+    }
+
+    private void printLinha(int colunas, int largura) {
+        System.out.print("+");
+        for (int i = 0; i < colunas; i++) {
+            for (int j = 0; j < largura; j++) {
+                System.out.print("-");
+            }
+            System.out.print("+");
+        }
+        System.out.println();
+    }
+
+    public void MatrizTransposta(Array) {
         ArrayList<ArrayList<Integer>> matrizi = new ArrayList<>();
 
         ArrayList<Integer> line1 = new ArrayList<>();
@@ -23,16 +137,16 @@ public class Matriz {
         ArrayList<ArrayList<Integer>> matrizf = new ArrayList<>();
 
         ArrayList<Integer> nums = new ArrayList<>();
-        
+
         int rolets = 0;
-        for (int i = 1; i < matrizi.size(); i++) {
+        for (int i = 0; i < matrizi.size(); i++) {
             for (int j = 0; j < matrizi.size(); j++) {
                 nums.add(matrizi.get(j).get(rolets));
                 if (j == 2) {
                     rolets += 1;
                 }
             }
-            
+
             matrizf.add(new ArrayList<>(nums));
             if (i == 1) {
                 nums.clear();
