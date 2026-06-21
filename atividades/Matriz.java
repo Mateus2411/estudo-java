@@ -6,56 +6,11 @@ import java.util.Scanner;
 
 public class Matriz {
 
-    static void Transposta() {
-
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        //tamanho da matriz
-        System.out.println("Diga o numero da matriz sendo\nprimeiro linha e depois coluna, utilize ',' para separar");
-        String tamanho;
-
-        int erros = 0;
-        do {
-            if (erros > 0) {
-                System.out.println("Digite o numero novamente seguindo as instruções dadas");
-            }
-            tamanho = sc.nextLine();
-            erros++;
-        } while (!tamanho.trim().matches("-?\\d+,-?\\d+"));
-
-        //Linhas e colunas que serão armazenadas
-        ArrayList<Integer> linhasEcolunas = new ArrayList<>();
-
-        //Estraindo elas
-        String[] extractedNums = tamanho.split(",");
-
-        for (int i = 0; i < extractedNums.length; i++) {
-            linhasEcolunas.add(Integer.parseInt(extractedNums[i]));
-        };
-
-        ArrayList<ArrayList<Integer>> matriz = new ArrayList<>();
-
         TolsMatriz tolsMatriz = new TolsMatriz();
-
-        for (int i = 0; i < linhasEcolunas.get(0); i++) {
-            System.out.printf("Digite os numeros da %dª linha da matriz separados por espaço\n", i + 1);
-            String nuns;
-
-            //Limpa o Buffer
-            int loads = 0;
-            do {
-                if (loads != 0) {
-                    System.out.printf("Digite novamente os numeros");
-                }
-                nuns = sc.nextLine();
-            } while (nuns.trim().split("\\s+").length != linhasEcolunas.get(1));
-            ArrayList<Integer> line = tolsMatriz.montarMatriz(nuns);
-            matriz.add(line);
-        };
-        tolsMatriz.imprimirMatrizComBorda(matriz);
+        tolsMatriz.criarMatriz();
+        sc.close();
     }
 }
 
@@ -72,10 +27,55 @@ class TolsMatriz {
             nuns.add(elem);
         }
         return nuns;
-    };
+    }
+    
+    public void criarMatriz() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Diga o numero da matriz sendo\nprimeiro linha e depois coluna, utilize ',' para separar");
+        String tamanho;
+
+        int erros = 0;
+        do {
+            if (erros > 0) {
+                System.out.println("Digite o numero novamente seguindo as instruções dadas");
+            }
+            tamanho = sc.nextLine();
+            erros++;
+        } while (!tamanho.trim().matches("-?\\d+,-?\\d+"));
+
+        ArrayList<ArrayList<Integer>> matriz = new ArrayList<>();
+        ArrayList<Integer> linhasEcolunas = new ArrayList<>();
+
+        String[] extractedNums = tamanho.split(",");
+
+        for (int i = 0; i < extractedNums.length; i++) {
+            linhasEcolunas.add(Integer.parseInt(extractedNums[i]));
+        };
+
+        for (int i = 0; i < linhasEcolunas.get(0); i++) {
+            System.out.printf("Digite os numeros da %dª linha da matriz separados por espaço\n", i + 1);
+            String nuns;
+
+            //Limpa o Buffer
+            int loads = 0;
+            do {
+                if (loads != 0) {
+                    System.out.printf("Digite novamente os numeros");
+                }
+                nuns = sc.nextLine();
+            } while (nuns.trim().split("\\s+").length != linhasEcolunas.get(1));
+            ArrayList<Integer> line = montarMatriz(nuns);
+            matriz.add(line);
+        };
+        sc.close();
+        imprimirMatrizComBorda(matriz);
+    }
+
     //Chatzão kkkkkkkkkkkk
     public void imprimirMatrizComBorda(ArrayList<ArrayList<Integer>> matriz) {
 
+        System.out.println("Matriz");
         int colunas = matriz.get(0).size();
 
         // encontra maior número pra ajustar largura automaticamente
@@ -117,7 +117,8 @@ class TolsMatriz {
         System.out.println();
     }
 
-    public void MatrizTransposta(Array) {
+    // Operações com matriz
+    public void MatrizTransposta() {
         ArrayList<ArrayList<Integer>> matrizi = new ArrayList<>();
 
         ArrayList<Integer> line1 = new ArrayList<>();
@@ -157,4 +158,5 @@ class TolsMatriz {
             System.out.printf("%d %d %d\n", matrizf.get(i).get(j), matrizf.get(i).get(++j), matrizf.get(i).get(++j));
         }
     }
+
 }

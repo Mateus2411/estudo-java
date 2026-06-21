@@ -1,0 +1,10 @@
+com\rpg\App.class
+com\rpg\Personagem.class
+com\rpg\Monstro.class
+com\rpg\Apresentacao.class
+com\rpg\toolscreate\Combate.class
+com\rpg\toolscreate\Monstros\FabricarMonstro.class
+com\rpg\toolscreate\Monstros\FabricarMonstro$1.class
+com\rpg\toolscreate\Monstros\TipoMonstro.class
+com\rpg\toolscreate\Monstros\ClasseMonstro.class
+com\rpg\Treinamento.class
