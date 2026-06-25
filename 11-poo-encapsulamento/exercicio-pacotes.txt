@@ -1,0 +1,33 @@
+/**
+ * EXERCÍCIO 4: Organização em pacotes
+ * 
+ * Organize as classes em pacotes:
+ *   - model: ContaBancaria, Cliente, Funcionario
+ *   - service: ContaService (operações bancárias)
+ *   - util: ValidadorCPF, FormatadorMoeda
+ * 
+ * Crie os diretórios manualmente ou use package no topo.
+ * 
+ * Estrutura esperada:
+ * src/
+ * ├── model/
+ * │   ├── ContaBancaria.java
+ * │   └── Funcionario.java
+ * ├── service/
+ * │   └── ContaService.java
+ * └── util/
+ *     └── ValidadorCPF.java
+ * 
+ * Dica: cada arquivo começa com package model; / package service; etc.
+ * 
+ * Este é um exercício de ESTRUTURA — crie múltiplos arquivos!
+ */
+
+// Em model/ContaBancaria.java:
+// package model;
+// public class ContaBancaria { ... }
+
+// Em service/ContaService.java:
+// package service;
+// import model.ContaBancaria;
+// public class ContaService { ... }
