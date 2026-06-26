@@ -17,14 +17,17 @@ public class AreaCirculo {
         System.out.printf("A area e: %.5f",area.calcular());
     }
 }
+//simples e basico
 class CalculoRaio{
     public double calcular(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Diga o raio do circulo");
-        double raio = sc.nextDouble();
-        PI pi = new PI();
-        double area = pi.getPI() * Math.pow(raio, 2);
-        sc.close();
+        double area = 0;
+        try(Scanner sc = new Scanner(System.in);) {
+            System.out.println("Diga o raio do circulo");
+            double raio = sc.nextDouble();
+            PI pi = new PI();
+            area = pi.getPI() * Math.pow(raio, 2);
+        } catch (Exception e) {
+        }
         return area;
     }
 }

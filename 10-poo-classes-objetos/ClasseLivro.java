@@ -15,7 +15,6 @@ public class ClasseLivro {
     }
 }
 
-// TODO: Crie a classe Livro aqui
-// class Livro {
-//     
-// }
+class Livro {
+    
+}

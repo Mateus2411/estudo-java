@@ -10,12 +10,11 @@
  */
 public class VelocidadeLuz {
     public static void main(String[] args) {
-        // TODO: Declare a constante VELOCIDADE_DA_LUZ
+        //preguiça de deixar mais bem colocado
         
-        // TODO: Declare a distância até Marte em metros
-        
-        // TODO: Calcule o tempo em segundos
-        
-        // TODO: Exiba o resultado
+        final double velocidadeLuz = 3e8;
+        double distancia = 225_000_000_000.0;
+        double tempo = distancia / velocidadeLuz;
+        System.out.printf("A luz leva %.0f segundos (%.1f minutos) para chegar a Marte\n", tempo, tempo / 60);
     }
 }

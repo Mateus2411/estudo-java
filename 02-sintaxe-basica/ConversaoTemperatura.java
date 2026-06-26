@@ -1,7 +1,6 @@
 
 import java.util.Scanner;
 
-
 /**
  * EXERCÍCIO 3: Conversão de temperatura
  *
@@ -21,14 +20,16 @@ public class ConversaoTemperatura {
 class ConverterTemperatura {
 
     public int conversao() {
-        Scanner sc = new Scanner(System.in);
         int celcios;
         int fahrenheit;
-        System.out.println("Diz ai a temperatura em celcios");
-        celcios = sc.nextInt();
+        try (Scanner sc = new Scanner(System.in);) {
+            System.out.println("Diz ai a temperatura em celcios");
+            celcios = sc.nextInt();
 
-        fahrenheit = (celcios * 9/5) + 32;
-        sc.close();
+            fahrenheit = (celcios * 9 / 5) + 32;
+            sc.close();
+        }
+        // preguiça de melhorar
         return fahrenheit;
     }
 }
